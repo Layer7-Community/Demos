@@ -6,7 +6,7 @@ This repository is for more complex demo scenarios using the Layer7 API Gateway.
 |Name|Brief Description|
 |-----|-----------------|
 |[**sample**](./sample)|This is a sample of how each demo should be structured in the repository and should be used as a guideline for all contributions|
-|[**Configuration Cache Demo**](./ConfigurationCacheDemo)|A demonstration of pulling configuration from an external source and pushing to cache|
+|[**Configuration Cache Demo**](./Configuration-Cache-Demo)|A demonstration of pulling configuration from an external source and pushing to cache|
 
 ## Using the Demo
 
