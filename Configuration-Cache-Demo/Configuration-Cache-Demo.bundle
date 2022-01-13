@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<l7:Bundle xmlns:l7="http://ns.l7tech.com/2010/04/gateway-management">
+    <l7:References>
+        <l7:Item>
+            <l7:Name>Configuration Cache Demo</l7:Name>
+            <l7:Id>439ab9c97a91fa44433c6cec4f8fa219</l7:Id>
+            <l7:Type>FOLDER</l7:Type>
+            <l7:TimeStamp>2022-01-13T12:39:09.884-08:00</l7:TimeStamp>
+            <l7:Resource>
+                <l7:Folder folderId="0000000000000000ffffffffffffec76" id="439ab9c97a91fa44433c6cec4f8fa219" version="1">
+                    <l7:Name>Configuration Cache Demo</l7:Name>
+                </l7:Folder>
+            </l7:Resource>
+        </l7:Item>
+        <l7:Item>
+            <l7:Name>Routing Logic</l7:Name>
+            <l7:Id>439ab9c97a91fa44433c6cec4f8f97b3</l7:Id>
+            <l7:Type>POLICY</l7:Type>
+            <l7:TimeStamp>2022-01-13T12:39:10.106-08:00</l7:TimeStamp>
+            <l7:Resource>
+                <l7:Policy guid="d2f2e38f-80ae-452d-af2d-856f762a0cd0" id="439ab9c97a91fa44433c6cec4f8f97b3" version="7">
+                    <l7:PolicyDetail folderId="439ab9c97a91fa44433c6cec4f8fa219" guid="d2f2e38f-80ae-452d-af2d-856f762a0cd0" id="439ab9c97a91fa44433c6cec4f8f97b3" version="7">
+                        <l7:Name>Routing Logic</l7:Name>
+                        <l7:PolicyType>Include</l7:PolicyType>
+                        <l7:Properties>
+                            <l7:Property key="revision">
+                                <l7:LongValue>6</l7:LongValue>
+                            </l7:Property>
+                            <l7:Property key="soap">
+                                <l7:BooleanValue>false</l7:BooleanValue>
+                            </l7:Property>
+                        </l7:Properties>
+                    </l7:PolicyDetail>
+                    <l7:Resources>
+                        <l7:ResourceSet tag="policy">
+                            <l7:Resource type="policy">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy"&gt;
+    &lt;wsp:All wsp:Usage="Required"&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="**************************************************************************************************************"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="* Policy fragment for &amp;quot;Routing Logic&amp;quot; encapsulated assertion"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="* "/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="* Route the request to a downstream service and handle response conditions"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="* "/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="* Inputs:"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="*   - url (string)"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="* "/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="* Outputs:"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="*   - error.status (string)"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="*   - error.messages (string)"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="**************************************************************************************************************"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+            &lt;L7p:HttpRoutingAssertion&gt;
+                &lt;L7p:FailOnErrorStatus booleanValue="false"/&gt;
+                &lt;L7p:ProtectedServiceUrl stringValue="${url}"/&gt;
+                &lt;L7p:ProxyPassword stringValueNull="null"/&gt;
+                &lt;L7p:ProxyUsername stringValueNull="null"/&gt;
+                &lt;L7p:RequestHeaderRules httpPassthroughRuleSet="included"&gt;
+                    &lt;L7p:ForwardAll booleanValue="true"/&gt;
+                    &lt;L7p:Rules httpPassthroughRules="included"&gt;
+                        &lt;L7p:item httpPassthroughRule="included"&gt;
+                            &lt;L7p:Name stringValue="Cookie"/&gt;
+                        &lt;/L7p:item&gt;
+                        &lt;L7p:item httpPassthroughRule="included"&gt;
+                            &lt;L7p:Name stringValue="SOAPAction"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Rules&gt;
+                &lt;/L7p:RequestHeaderRules&gt;
+                &lt;L7p:RequestParamRules httpPassthroughRuleSet="included"&gt;
+                    &lt;L7p:ForwardAll booleanValue="true"/&gt;
+                    &lt;L7p:Rules httpPassthroughRules="included"/&gt;
+                &lt;/L7p:RequestParamRules&gt;
+                &lt;L7p:ResponseHeaderRules httpPassthroughRuleSet="included"&gt;
+                    &lt;L7p:ForwardAll booleanValue="true"/&gt;
+                    &lt;L7p:Rules httpPassthroughRules="included"&gt;
+                        &lt;L7p:item httpPassthroughRule="included"&gt;
+                            &lt;L7p:Name stringValue="Set-Cookie"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Rules&gt;
+                &lt;/L7p:ResponseHeaderRules&gt;
+                &lt;L7p:SamlAssertionVersion intValue="2"/&gt;
+            &lt;/L7p:HttpRoutingAssertion&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                    &lt;L7p:Expression1 stringValue="${httprouting.reasonCode}"/&gt;
+                    &lt;L7p:Expression2 stringValue="-1"/&gt;
+                    &lt;L7p:Predicates predicates="included"&gt;
+                        &lt;L7p:item binary="included"&gt;
+                            &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                            &lt;L7p:RightValue stringValue="-1"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="NTAy"/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.status"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="QmFkIEdhdGV3YXk6IEhvc3QgTm90IEZvdW5k"/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.message"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:FalseAssertion/&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                            &lt;L7p:value stringValue="// ${httprouting.reasonCode} == -1 (Host Not Found)"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                    &lt;L7p:Expression1 stringValue="${httprouting.reasonCode}"/&gt;
+                    &lt;L7p:Expression2 stringValue="-2"/&gt;
+                    &lt;L7p:Predicates predicates="included"&gt;
+                        &lt;L7p:item binary="included"&gt;
+                            &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                            &lt;L7p:RightValue stringValue="-2"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="NTAy"/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.status"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="QmFkIEdhdGV3YXk6IEJhZCBVUkw="/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.message"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:FalseAssertion/&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                            &lt;L7p:value stringValue="// ${httprouting.reasonCode} == -2 (Bad URL)"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                    &lt;L7p:Expression1 stringValue="${httprouting.reasonCode}"/&gt;
+                    &lt;L7p:Expression2 stringValue="-3"/&gt;
+                    &lt;L7p:Predicates predicates="included"&gt;
+                        &lt;L7p:item binary="included"&gt;
+                            &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                            &lt;L7p:RightValue stringValue="-3"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="NTAy"/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.status"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="QmFkIEdhdGV3YXk6IENvbm5lY3Rpb24gVGltZW91dA=="/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.message"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:FalseAssertion/&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                            &lt;L7p:value stringValue="// ${httprouting.reasonCode} == -3 (Connection Timeout)"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                    &lt;L7p:Expression1 stringValue="${httprouting.reasonCode}"/&gt;
+                    &lt;L7p:Expression2 stringValue="-4"/&gt;
+                    &lt;L7p:Predicates predicates="included"&gt;
+                        &lt;L7p:item binary="included"&gt;
+                            &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                            &lt;L7p:RightValue stringValue="-4"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="NTAy"/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.status"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="QmFkIEdhdGV3YXk6IFJlYWQgVGltZW91dA=="/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.message"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:FalseAssertion/&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                            &lt;L7p:value stringValue="// ${httprouting.reasonCode} == -4 (Read Timeout)"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                    &lt;L7p:Expression1 stringValue="${httprouting.reasonCode}"/&gt;
+                    &lt;L7p:Expression2 stringValue="-5"/&gt;
+                    &lt;L7p:Predicates predicates="included"&gt;
+                        &lt;L7p:item binary="included"&gt;
+                            &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                            &lt;L7p:RightValue stringValue="-5"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="NTAy"/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.status"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="QmFkIEdhdGV3YXk6IFVuZGVmaW5lZCBFcnJvcg=="/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.message"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:FalseAssertion/&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                            &lt;L7p:value stringValue="// ${httprouting.reasonCode} == -5 (Undefined)"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;L7p:assertionComment&gt;
+                &lt;L7p:Properties mapValue="included"&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                        &lt;L7p:value stringValue="// Route request else fail 502 (Bad Gateway) with reasoncode"/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Properties&gt;
+            &lt;/L7p:assertionComment&gt;
+        &lt;/wsp:OneOrMore&gt;
+        &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+            &lt;L7p:ComparisonAssertion&gt;
+                &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                &lt;L7p:Expression1 stringValue="${httprouting.reasonCode}"/&gt;
+                &lt;L7p:Expression2 stringValue="200"/&gt;
+                &lt;L7p:Predicates predicates="included"&gt;
+                    &lt;L7p:item binary="included"&gt;
+                        &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                        &lt;L7p:RightValue stringValue="200"/&gt;
+                    &lt;/L7p:item&gt;
+                &lt;/L7p:Predicates&gt;
+            &lt;/L7p:ComparisonAssertion&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                    &lt;L7p:Expression1 stringValue="${httprouting.reasonCode}"/&gt;
+                    &lt;L7p:Expression2 stringValue="404"/&gt;
+                    &lt;L7p:Predicates predicates="included"&gt;
+                        &lt;L7p:item binary="included"&gt;
+                            &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                            &lt;L7p:RightValue stringValue="404"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="NDA0"/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.status"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="RG93bnN0cmVhbSBTZXJ2aWNlIE5vdCBGb3VuZA=="/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.message"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:FalseAssertion/&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                            &lt;L7p:value stringValue="// ${httprouting.reasonCode} == 404"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                    &lt;L7p:Expression1 stringValue="${httprouting.reasonCode}"/&gt;
+                    &lt;L7p:Expression2 stringValue="500"/&gt;
+                    &lt;L7p:Predicates predicates="included"&gt;
+                        &lt;L7p:item binary="included"&gt;
+                            &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                            &lt;L7p:RightValue stringValue="500"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="NTAw"/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.status"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="RG93bnN0cmVhbSBTZXJ2aWNlIEZhaWxlZA=="/&gt;
+                    &lt;L7p:VariableToSet stringValue="error.message"/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;L7p:FalseAssertion/&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                            &lt;L7p:value stringValue="// ${httprouting.reasonCode} == 500"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;L7p:assertionComment&gt;
+                &lt;L7p:Properties mapValue="included"&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                        &lt;L7p:value stringValue="// Handle ${httprouting.reasonCode} set by downstream service"/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Properties&gt;
+            &lt;/L7p:assertionComment&gt;
+        &lt;/wsp:OneOrMore&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                        </l7:ResourceSet>
+                    </l7:Resources>
+                </l7:Policy>
+            </l7:Resource>
+        </l7:Item>
+        <l7:Item>
+            <l7:Name>Routing Logic</l7:Name>
+            <l7:Id>439ab9c97a91fa44433c6cec4f8f9902</l7:Id>
+            <l7:Type>ENCAPSULATED_ASSERTION</l7:Type>
+            <l7:TimeStamp>2022-01-13T12:39:10.106-08:00</l7:TimeStamp>
+            <l7:Resource>
+                <l7:EncapsulatedAssertion id="439ab9c97a91fa44433c6cec4f8f9902" version="2">
+                    <l7:Name>Routing Logic</l7:Name>
+                    <l7:Guid>625ca77f-9550-4140-8195-b7ecbf516703</l7:Guid>
+                    <l7:PolicyReference id="439ab9c97a91fa44433c6cec4f8f97b3" resourceUri="http://ns.l7tech.com/2010/04/gateway-management/policies"/>
+                    <l7:EncapsulatedArguments>
+                        <l7:EncapsulatedAssertionArgument>
+                            <l7:Ordinal>1</l7:Ordinal>
+                            <l7:ArgumentName>url</l7:ArgumentName>
+                            <l7:ArgumentType>string</l7:ArgumentType>
+                            <l7:GuiLabel>URL (required): </l7:GuiLabel>
+                            <l7:GuiPrompt>true</l7:GuiPrompt>
+                        </l7:EncapsulatedAssertionArgument>
+                    </l7:EncapsulatedArguments>
+                    <l7:EncapsulatedResults>
+                        <l7:EncapsulatedAssertionResult>
+                            <l7:ResultName>error.message</l7:ResultName>
+                            <l7:ResultType>string</l7:ResultType>
+                        </l7:EncapsulatedAssertionResult>
+                        <l7:EncapsulatedAssertionResult>
+                            <l7:ResultName>error.status</l7:ResultName>
+                            <l7:ResultType>string</l7:ResultType>
+                        </l7:EncapsulatedAssertionResult>
+                    </l7:EncapsulatedResults>
+                    <l7:Properties>
+                        <l7:Property key="allowTracing">
+                            <l7:StringValue>false</l7:StringValue>
+                        </l7:Property>
+                        <l7:Property key="description">
+                            <l7:StringValue>Route the request to a downstream service and handle response conditions</l7:StringValue>
+                        </l7:Property>
+                        <l7:Property key="paletteFolder">
+                            <l7:StringValue>routing</l7:StringValue>
+                        </l7:Property>
+                        <l7:Property key="paletteIconResourceName">
+                            <l7:StringValue>routing.gif</l7:StringValue>
+                        </l7:Property>
+                        <l7:Property key="passMetricsToParent">
+                            <l7:StringValue>true</l7:StringValue>
+                        </l7:Property>
+                        <l7:Property key="policyGuid">
+                            <l7:StringValue>d2f2e38f-80ae-452d-af2d-856f762a0cd0</l7:StringValue>
+                        </l7:Property>
+                    </l7:Properties>
+                </l7:EncapsulatedAssertion>
+            </l7:Resource>
+        </l7:Item>
+        <l7:Item>
+            <l7:Name>Load Configuration Cache</l7:Name>
+            <l7:Id>439ab9c97a91fa44433c6cec4f8f9b79</l7:Id>
+            <l7:Type>POLICY</l7:Type>
+            <l7:TimeStamp>2022-01-13T12:39:10.108-08:00</l7:TimeStamp>
+            <l7:Resource>
+                <l7:Policy guid="28fdd7d5-c841-4f6d-912d-bf75fb77c41e" id="439ab9c97a91fa44433c6cec4f8f9b79" version="25">
+                    <l7:PolicyDetail folderId="439ab9c97a91fa44433c6cec4f8fa219" guid="28fdd7d5-c841-4f6d-912d-bf75fb77c41e" id="439ab9c97a91fa44433c6cec4f8f9b79" version="25">
+                        <l7:Name>Load Configuration Cache</l7:Name>
+                        <l7:PolicyType>Service Operation</l7:PolicyType>
+                        <l7:Properties>
+                            <l7:Property key="revision">
+                                <l7:LongValue>26</l7:LongValue>
+                            </l7:Property>
+                            <l7:Property key="soap">
+                                <l7:BooleanValue>false</l7:BooleanValue>
+                            </l7:Property>
+                            <l7:Property key="subtag">
+                                <l7:StringValue>run</l7:StringValue>
+                            </l7:Property>
+                            <l7:Property key="tag">
+                                <l7:StringValue>com.l7tech.objectmodel.polback.BackgroundTask</l7:StringValue>
+                            </l7:Property>
+                        </l7:Properties>
+                    </l7:PolicyDetail>
+                    <l7:Resources>
+                        <l7:ResourceSet tag="policy">
+                            <l7:Resource type="policy">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy"&gt;
+    &lt;wsp:All wsp:Usage="Required"&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="***************************************************************************************"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="* Scheduled task to load values from configuration service into cache"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="***************************************************************************************"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:Encapsulated&gt;
+            &lt;L7p:AssertionComment assertionComment="included"&gt;
+                &lt;L7p:Properties mapValue="included"&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                        &lt;L7p:value stringValue="// Retrieve the configuration XML from http://localhost:8080/ConfigurationCacheDemo/configuration"/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Properties&gt;
+            &lt;/L7p:AssertionComment&gt;
+            &lt;L7p:EncapsulatedAssertionConfigGuid stringValue="625ca77f-9550-4140-8195-b7ecbf516703"/&gt;
+            &lt;L7p:EncapsulatedAssertionConfigName stringValue="Routing Logic"/&gt;
+            &lt;L7p:Parameters mapValue="included"&gt;
+                &lt;L7p:entry&gt;
+                    &lt;L7p:key stringValue="url"/&gt;
+                    &lt;L7p:value stringValue="http://localhost:8080/ConfigurationCacheDemo/configuration"/&gt;
+                &lt;/L7p:entry&gt;
+            &lt;/L7p:Parameters&gt;
+        &lt;/L7p:Encapsulated&gt;
+        &lt;L7p:ResponseXpathAssertion&gt;
+            &lt;L7p:AssertionComment assertionComment="included"&gt;
+                &lt;L7p:Properties mapValue="included"&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                        &lt;L7p:value stringValue="// Extract list of services from XML"/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Properties&gt;
+            &lt;/L7p:AssertionComment&gt;
+            &lt;L7p:VariablePrefix stringValue="services"/&gt;
+            &lt;L7p:XpathExpression xpathExpressionValue="included"&gt;
+                &lt;L7p:Expression stringValue="/configuration/service"/&gt;
+                &lt;L7p:Namespaces mapValue="included"&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="s"/&gt;
+                        &lt;L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Namespaces&gt;
+                &lt;L7p:XpathVersion xpathVersion="XPATH_1_0"/&gt;
+            &lt;/L7p:XpathExpression&gt;
+        &lt;/L7p:ResponseXpathAssertion&gt;
+        &lt;L7p:ForEachLoop L7p:Usage="Required"
+            loopVariable="services.elements" variablePrefix="service.xml"&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:AssertionComment assertionComment="included"&gt;
+                    &lt;L7p:Properties mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                            &lt;L7p:value stringValue="// Cast to message type text/xml"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:AssertionComment&gt;
+                &lt;L7p:Base64Expression stringValue="JHtzZXJ2aWNlLnhtbC5jdXJyZW50fQ=="/&gt;
+                &lt;L7p:ContentType stringValue="text/xml; charset=utf-8"/&gt;
+                &lt;L7p:DataType variableDataType="message"/&gt;
+                &lt;L7p:VariableToSet stringValue="service.xml"/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:ResponseXpathAssertion&gt;
+                &lt;L7p:AssertionComment assertionComment="included"&gt;
+                    &lt;L7p:Properties mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                            &lt;L7p:value stringValue="// Extract the path attribute for the service. Need for defining cache to use"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:AssertionComment&gt;
+                &lt;L7p:VariablePrefix stringValue="path"/&gt;
+                &lt;L7p:XmlMsgSrc stringValue="service.xml"/&gt;
+                &lt;L7p:XpathExpression xpathExpressionValue="included"&gt;
+                    &lt;L7p:Expression stringValue="/service/@path"/&gt;
+                    &lt;L7p:Namespaces mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="s"/&gt;
+                            &lt;L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Namespaces&gt;
+                    &lt;L7p:XpathVersion xpathVersion="XPATH_1_0"/&gt;
+                &lt;/L7p:XpathExpression&gt;
+            &lt;/L7p:ResponseXpathAssertion&gt;
+            &lt;L7p:ResponseXpathAssertion&gt;
+                &lt;L7p:AssertionComment assertionComment="included"&gt;
+                    &lt;L7p:Properties mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                            &lt;L7p:value stringValue="// Get list of parameters by name"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:AssertionComment&gt;
+                &lt;L7p:VariablePrefix stringValue="parameters"/&gt;
+                &lt;L7p:XmlMsgSrc stringValue="service.xml"/&gt;
+                &lt;L7p:XpathExpression xpathExpressionValue="included"&gt;
+                    &lt;L7p:Expression stringValue="/service/parameter/@name"/&gt;
+                    &lt;L7p:Namespaces mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="s"/&gt;
+                            &lt;L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Namespaces&gt;
+                    &lt;L7p:XpathVersion xpathVersion="XPATH_1_0"/&gt;
+                &lt;/L7p:XpathExpression&gt;
+            &lt;/L7p:ResponseXpathAssertion&gt;
+            &lt;L7p:ForEachLoop L7p:Usage="Required"
+                loopVariable="parameters.elements" variablePrefix="parameter"&gt;
+                &lt;L7p:ResponseXpathAssertion&gt;
+                    &lt;L7p:AssertionComment assertionComment="included"&gt;
+                        &lt;L7p:Properties mapValue="included"&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                                &lt;L7p:value stringValue="// Get value of parameter by name"/&gt;
+                            &lt;/L7p:entry&gt;
+                        &lt;/L7p:Properties&gt;
+                    &lt;/L7p:AssertionComment&gt;
+                    &lt;L7p:VariablePrefix stringValue="value"/&gt;
+                    &lt;L7p:XmlMsgSrc stringValue="service.xml"/&gt;
+                    &lt;L7p:XpathExpression xpathExpressionValue="included"&gt;
+                        &lt;L7p:Expression stringValue="/service/parameter[@name=$parameter.current]/text()"/&gt;
+                        &lt;L7p:Namespaces mapValue="included"&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue="s"/&gt;
+                                &lt;L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/&gt;
+                            &lt;/L7p:entry&gt;
+                        &lt;/L7p:Namespaces&gt;
+                        &lt;L7p:XpathVersion xpathVersion="XPATH_1_0"/&gt;
+                    &lt;/L7p:XpathExpression&gt;
+                &lt;/L7p:ResponseXpathAssertion&gt;
+                &lt;L7p:AuditDetailAssertion&gt;
+                    &lt;L7p:Detail stringValue="Sending parameter-${parameter.current} = ${value.result} to configCache-${path.result}"/&gt;
+                    &lt;L7p:Enabled booleanValue="false"/&gt;
+                    &lt;L7p:LoggingOnly booleanValue="true"/&gt;
+                &lt;/L7p:AuditDetailAssertion&gt;
+                &lt;L7p:CacheStorage&gt;
+                    &lt;L7p:CacheEntryKey stringValue="parameter-${parameter.current}"/&gt;
+                    &lt;L7p:CacheId stringValue="configCache-${path.result}"/&gt;
+                    &lt;L7p:OtherTargetMessageVariable stringValue="value.result"/&gt;
+                    &lt;L7p:Target target="OTHER"/&gt;
+                &lt;/L7p:CacheStorage&gt;
+            &lt;/L7p:ForEachLoop&gt;
+        &lt;/L7p:ForEachLoop&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                        </l7:ResourceSet>
+                    </l7:Resources>
+                </l7:Policy>
+            </l7:Resource>
+        </l7:Item>
+        <l7:Item>
+            <l7:Name>Demo Configuration Service</l7:Name>
+            <l7:Id>439ab9c97a91fa44433c6cec4f8f9b9e</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+            <l7:TimeStamp>2022-01-13T12:39:10.114-08:00</l7:TimeStamp>
+            <l7:Resource>
+                <l7:Service id="439ab9c97a91fa44433c6cec4f8f9b9e" version="6">
+                    <l7:ServiceDetail folderId="439ab9c97a91fa44433c6cec4f8fa219" id="439ab9c97a91fa44433c6cec4f8f9b9e" version="6">
+                        <l7:Name>Demo Configuration Service</l7:Name>
+                        <l7:Enabled>true</l7:Enabled>
+                        <l7:ServiceMappings>
+                            <l7:HttpMapping>
+                                <l7:UrlPattern>/ConfigurationCacheDemo/configuration</l7:UrlPattern>
+                                <l7:Verbs>
+                                    <l7:Verb>GET</l7:Verb>
+                                    <l7:Verb>POST</l7:Verb>
+                                    <l7:Verb>PUT</l7:Verb>
+                                    <l7:Verb>DELETE</l7:Verb>
+                                </l7:Verbs>
+                            </l7:HttpMapping>
+                        </l7:ServiceMappings>
+                        <l7:Properties>
+                            <l7:Property key="internal">
+                                <l7:BooleanValue>false</l7:BooleanValue>
+                            </l7:Property>
+                            <l7:Property key="policyRevision">
+                                <l7:LongValue>10</l7:LongValue>
+                            </l7:Property>
+                            <l7:Property key="soap">
+                                <l7:BooleanValue>false</l7:BooleanValue>
+                            </l7:Property>
+                            <l7:Property key="tracingEnabled">
+                                <l7:BooleanValue>false</l7:BooleanValue>
+                            </l7:Property>
+                            <l7:Property key="wssProcessingEnabled">
+                                <l7:BooleanValue>false</l7:BooleanValue>
+                            </l7:Property>
+                        </l7:Properties>
+                    </l7:ServiceDetail>
+                    <l7:Resources>
+                        <l7:ResourceSet tag="policy">
+                            <l7:Resource type="policy" version="9">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy"&gt;
+    &lt;wsp:All wsp:Usage="Required"&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="***************************************************************************************"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="* Demo service to present configuration values"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="***************************************************************************************"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:HardcodedResponse&gt;
+            &lt;L7p:AssertionComment assertionComment="included"&gt;
+                &lt;L7p:Properties mapValue="included"&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                        &lt;L7p:value stringValue="// 200 text/xml"/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Properties&gt;
+            &lt;/L7p:AssertionComment&gt;
+            &lt;L7p:Base64ResponseBody stringValue="PGNvbmZpZ3VyYXRpb24+CiAgPHNlcnZpY2UgcGF0aD0iL0NvbmZpZ3VyYXRpb25DYWNoZURlbW8vdGVzdCI+CiAgICA8cGFyYW1ldGVyIG5hbWU9InVybCI+aHR0cDovL3d3dy5mb28xMjMuY29tL3Rlc3Q8L3BhcmFtZXRlcj4KICAgIDxwYXJhbWV0ZXIgbmFtZT0iY29ubmVjdFRpbWVvdXQiPjM1MDA8L3BhcmFtZXRlcj4KICAgIDxwYXJhbWV0ZXIgbmFtZT0icmVhZFRpbWVvdXQiPjEwMDAwPC9wYXJhbWV0ZXI+CiAgPC9zZXJ2aWNlPgogIDxzZXJ2aWNlIHBhdGg9Ii9Db25maWd1cmF0aW9uQ2FjaGVEZW1vL2F1dGgiPgogICAgPHBhcmFtZXRlciBuYW1lPSJ1cmwiPmh0dHA6Ly93d3cuZm9vMTIzLmNvbS9hdXRoPC9wYXJhbWV0ZXI+CiAgICA8cGFyYW1ldGVyIG5hbWU9ImNvbm5lY3RUaW1lb3V0Ij4yNTAwPC9wYXJhbWV0ZXI+CiAgICA8cGFyYW1ldGVyIG5hbWU9InJlYWRUaW1lb3V0Ij4zMDAwMDwvcGFyYW1ldGVyPgogIDwvc2VydmljZT4KPC9jb25maWd1cmF0aW9uPg=="/&gt;
+        &lt;/L7p:HardcodedResponse&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                        </l7:ResourceSet>
+                    </l7:Resources>
+                </l7:Service>
+            </l7:Resource>
+        </l7:Item>
+        <l7:Item>
+            <l7:Name>Cached Configuration Demo Service</l7:Name>
+            <l7:Id>439ab9c97a91fa44433c6cec4f8fa1bb</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+            <l7:TimeStamp>2022-01-13T12:39:10.116-08:00</l7:TimeStamp>
+            <l7:Resource>
+                <l7:Service id="439ab9c97a91fa44433c6cec4f8fa1bb" version="6">
+                    <l7:ServiceDetail folderId="439ab9c97a91fa44433c6cec4f8fa219" id="439ab9c97a91fa44433c6cec4f8fa1bb" version="6">
+                        <l7:Name>Cached Configuration Demo Service</l7:Name>
+                        <l7:Enabled>true</l7:Enabled>
+                        <l7:ServiceMappings>
+                            <l7:HttpMapping>
+                                <l7:UrlPattern>/ConfigurationCacheDemo/*</l7:UrlPattern>
+                                <l7:Verbs>
+                                    <l7:Verb>GET</l7:Verb>
+                                    <l7:Verb>POST</l7:Verb>
+                                    <l7:Verb>PUT</l7:Verb>
+                                    <l7:Verb>DELETE</l7:Verb>
+                                </l7:Verbs>
+                            </l7:HttpMapping>
+                        </l7:ServiceMappings>
+                        <l7:Properties>
+                            <l7:Property key="internal">
+                                <l7:BooleanValue>false</l7:BooleanValue>
+                            </l7:Property>
+                            <l7:Property key="policyRevision">
+                                <l7:LongValue>4</l7:LongValue>
+                            </l7:Property>
+                            <l7:Property key="soap">
+                                <l7:BooleanValue>false</l7:BooleanValue>
+                            </l7:Property>
+                            <l7:Property key="tracingEnabled">
+                                <l7:BooleanValue>false</l7:BooleanValue>
+                            </l7:Property>
+                            <l7:Property key="wssProcessingEnabled">
+                                <l7:BooleanValue>false</l7:BooleanValue>
+                            </l7:Property>
+                        </l7:Properties>
+                    </l7:ServiceDetail>
+                    <l7:Resources>
+                        <l7:ResourceSet tag="policy">
+                            <l7:Resource type="policy" version="5">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy"&gt;
+    &lt;wsp:All wsp:Usage="Required"&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="**************************************************************************************************************"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="* Policy to illustrate cached configuration from service"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="**************************************************************************************************************"/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:SetVariable&gt;
+            &lt;L7p:Base64Expression stringValue="cGFyYW1ldGVy"/&gt;
+            &lt;L7p:VariableToSet stringValue="configKey"/&gt;
+        &lt;/L7p:SetVariable&gt;
+        &lt;L7p:SetVariable&gt;
+            &lt;L7p:Base64Expression stringValue="JHtyZXF1ZXN0LnVybC5wYXRofQ=="/&gt;
+            &lt;L7p:VariableToSet stringValue="path"/&gt;
+        &lt;/L7p:SetVariable&gt;
+        &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+            &lt;L7p:CacheLookup&gt;
+                &lt;L7p:CacheEntryKey stringValue="${configKey}-url"/&gt;
+                &lt;L7p:CacheId stringValue="configCache-${path}"/&gt;
+                &lt;L7p:ContentTypeOverride stringValue=""/&gt;
+                &lt;L7p:OtherTargetMessageVariable stringValue="url"/&gt;
+                &lt;L7p:Target target="OTHER"/&gt;
+            &lt;/L7p:CacheLookup&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:CustomizeErrorResponse&gt;
+                    &lt;L7p:Content stringValue="Not Found"/&gt;
+                    &lt;L7p:ExtraHeaders nameValuePairArray="included"/&gt;
+                    &lt;L7p:HttpStatus stringValue="404"/&gt;
+                &lt;/L7p:CustomizeErrorResponse&gt;
+                &lt;L7p:FalseAssertion/&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue="included"&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                            &lt;L7p:value stringValue="// Fail 404"/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;L7p:assertionComment&gt;
+                &lt;L7p:Properties mapValue="included"&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                        &lt;L7p:value stringValue="// Look up URL for this path, fail 404 if not found"/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Properties&gt;
+            &lt;/L7p:assertionComment&gt;
+        &lt;/wsp:OneOrMore&gt;
+        &lt;L7p:SetVariable&gt;
+            &lt;L7p:Base64Expression stringValue="JHt1cmwubWFpbnBhcnR9"/&gt;
+            &lt;L7p:VariableToSet stringValue="url"/&gt;
+        &lt;/L7p:SetVariable&gt;
+        &lt;L7p:CacheLookup&gt;
+            &lt;L7p:CacheEntryKey stringValue="${configKey}-readTimeout"/&gt;
+            &lt;L7p:CacheId stringValue="configCache-${path}"/&gt;
+            &lt;L7p:ContentTypeOverride stringValue=""/&gt;
+            &lt;L7p:OtherTargetMessageVariable stringValue="readTimeout"/&gt;
+            &lt;L7p:Target target="OTHER"/&gt;
+        &lt;/L7p:CacheLookup&gt;
+        &lt;L7p:SetVariable&gt;
+            &lt;L7p:Base64Expression stringValue="JHtyZWFkVGltZW91dC5tYWlucGFydH0="/&gt;
+            &lt;L7p:VariableToSet stringValue="readTimeout"/&gt;
+        &lt;/L7p:SetVariable&gt;
+        &lt;L7p:CacheLookup&gt;
+            &lt;L7p:CacheEntryKey stringValue="${configKey}-connectTimeout"/&gt;
+            &lt;L7p:CacheId stringValue="configCache-${path}"/&gt;
+            &lt;L7p:ContentTypeOverride stringValue=""/&gt;
+            &lt;L7p:OtherTargetMessageVariable stringValue="connectTimeout"/&gt;
+            &lt;L7p:Target target="OTHER"/&gt;
+        &lt;/L7p:CacheLookup&gt;
+        &lt;L7p:SetVariable&gt;
+            &lt;L7p:Base64Expression stringValue="JHtjb25uZWN0VGltZW91dC5tYWlucGFydH0="/&gt;
+            &lt;L7p:VariableToSet stringValue="connectTimeout"/&gt;
+        &lt;/L7p:SetVariable&gt;
+        &lt;L7p:HardcodedResponse&gt;
+            &lt;L7p:Base64ResponseBody stringValue="Q29uZmlndXJhdGlvbiBmb3IgJHtwYXRofToKICAtIHVybCA9ICR7dXJsfQogIC0gcmVhZFRpbWVvdXQgPSAke3JlYWRUaW1lb3V0fQogIC0gY29ubmVjdFRpbWVvdXQgPSAke2Nvbm5lY3RUaW1lb3V0fQ=="/&gt;
+            &lt;L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/&gt;
+        &lt;/L7p:HardcodedResponse&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                        </l7:ResourceSet>
+                    </l7:Resources>
+                </l7:Service>
+            </l7:Resource>
+        </l7:Item>
+	<l7:Item>
+            <l7:Name>Load Service Configuration Cache</l7:Name>
+            <l7:Id>439ab9c97a91fa44433c6cec4f8f9c66</l7:Id>
+            <l7:Type>SCHEDULED_TASK</l7:Type>
+            <l7:TimeStamp>2022-01-13T12:40:24.943-08:00</l7:TimeStamp>
+            <l7:Link rel="self" uri="https://ssg100.l7tech.com:8443/restman/1.0/scheduledTasks/439ab9c97a91fa44433c6cec4f8f9c66"/>
+            <l7:Link rel="template" uri="https://ssg100.l7tech.com:8443/restman/1.0/scheduledTasks/template"/>
+            <l7:Link rel="list" uri="https://ssg100.l7tech.com:8443/restman/1.0/scheduledTasks"/>
+            <l7:Resource>
+                <l7:ScheduledTask id="439ab9c97a91fa44433c6cec4f8f9c66" version="0">
+                    <l7:Name>Load Service Configuration Cache</l7:Name>
+                    <l7:PolicyReference id="439ab9c97a91fa44433c6cec4f8f9b79" resourceUri="http://ns.l7tech.com/2010/04/gateway-management/policies"/>
+                    <l7:OneNode>false</l7:OneNode>
+                    <l7:JobType>Recurring</l7:JobType>
+                    <l7:JobStatus>Scheduled</l7:JobStatus>
+                    <l7:CronExpression>*/10 * * * * ?</l7:CronExpression>
+                    <l7:ExecuteOnCreate>false</l7:ExecuteOnCreate>
+                    <l7:Properties/>
+                </l7:ScheduledTask>
+            </l7:Resource>
+        </l7:Item>
+    </l7:References>
+    <l7:Mappings>
+        <l7:Mapping action="NewOrExisting" srcId="0000000000000000ffffffffffffec76" srcUri="https://ssg100.l7tech.com:8443/restman/1.0/folders/0000000000000000ffffffffffffec76" type="FOLDER">
+            <l7:Properties>
+                <l7:Property key="FailOnNew">
+                    <l7:BooleanValue>true</l7:BooleanValue>
+                </l7:Property>
+            </l7:Properties>
+        </l7:Mapping>
+        <l7:Mapping action="NewOrExisting" srcId="439ab9c97a91fa44433c6cec4f8fa219" srcUri="https://ssg100.l7tech.com:8443/restman/1.0/folders/439ab9c97a91fa44433c6cec4f8fa219" type="FOLDER"/>
+        <l7:Mapping action="NewOrExisting" srcId="439ab9c97a91fa44433c6cec4f8f97b3" srcUri="https://ssg100.l7tech.com:8443/restman/1.0/policies/439ab9c97a91fa44433c6cec4f8f97b3" type="POLICY"/>
+        <l7:Mapping action="NewOrExisting" srcId="439ab9c97a91fa44433c6cec4f8f9902" srcUri="https://ssg100.l7tech.com:8443/restman/1.0/encapsulatedAssertions/439ab9c97a91fa44433c6cec4f8f9902" type="ENCAPSULATED_ASSERTION"/>
+        <l7:Mapping action="NewOrExisting" srcId="439ab9c97a91fa44433c6cec4f8f9b79" srcUri="https://ssg100.l7tech.com:8443/restman/1.0/policies/439ab9c97a91fa44433c6cec4f8f9b79" type="POLICY"/>
+        <l7:Mapping action="NewOrExisting" srcId="439ab9c97a91fa44433c6cec4f8f9b9e" srcUri="https://ssg100.l7tech.com:8443/restman/1.0/services/439ab9c97a91fa44433c6cec4f8f9b9e" type="SERVICE"/>
+        <l7:Mapping action="NewOrExisting" srcId="439ab9c97a91fa44433c6cec4f8fa1bb" srcUri="https://ssg100.l7tech.com:8443/restman/1.0/services/439ab9c97a91fa44433c6cec4f8fa1bb" type="SERVICE"/>
+        <l7:Mapping action="NewOrExisting" srcId="439ab9c97a91fa44433c6cec4f8f9c66" srcUri="https://ssg100.l7tech.com:8443/restman/1.0/scheduledTasks/439ab9c97a91fa44433c6cec4f8f9c66" type="SCHEDULED_TASK"/>
+    </l7:Mappings>
+</l7:Bundle>
