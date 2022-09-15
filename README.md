@@ -5,8 +5,9 @@ This repository is for more complex demo scenarios using the Layer7 API Gateway.
 
 |Name|Brief Description|
 |-----|-----------------|
-|[**sample**](./sample)|This is a sample of how each demo should be structured in the repository and should be used as a guideline for all contributions|
 |[**Configuration Cache Demo**](./Configuration-Cache-Demo)|A demonstration of pulling configuration from an external source and pushing to cache|
+|[**Layer7 Operator**](./Layer7-Operator)|The Layer7 Gateway Operator, built using the Operator SDK covers all aspects of deploying, maintaining and upgrading API Gateways in Kubernetes.|
+
 
 ## Using the Demo
 
